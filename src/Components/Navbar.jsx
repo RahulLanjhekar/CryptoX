@@ -17,7 +17,7 @@ const Navbar = () => {
       </ul>
 
       { toggle ? (
-          <div className="flex justify-between glass-window p-4 fixed right-0 top-0 h-screen w-3/5 animate-slide">
+          <div className="flex z-10 justify-between glass-window p-4 fixed right-0 top-0 h-screen w-3/5 animate-slide">
             <AiOutlineClose onClick={() => setToggle(false)} className='cursor-pointer text-black' />
             <ul className="text-white">
               <li className="mx-4 cursor-pointer lg:text-xl text-xl text-black font-light">Market</li>

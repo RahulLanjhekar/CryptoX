@@ -64,6 +64,14 @@ export const TransactionProvider = ({children}) => {
     const checkIfWalletIsConnect  = async () => {
         try {
             if(ethereum){
+                const chainId = await ethereum.request({method: 'eth_chainId'});
+                const goerliId = '0x5';
+
+                if(chainId !== goerliId){
+                    alert("Please select Goerli Testnet on Metamask!");
+                    return;
+                } 
+
                 const account = await ethereum.request({method: "eth_accounts"});
 
                 if(account.length){
@@ -94,6 +102,15 @@ export const TransactionProvider = ({children}) => {
     const connectWallet = async () => {
         try {
             if(ethereum){
+
+                const chainId = await ethereum.request({method: 'eth_chainId'});
+                const goerliId = '0x5';
+
+                if(chainId !== goerliId){
+                    alert("Please select Goerli Testnet on Metamask!");
+                    return;
+                } 
+
                 const account = await ethereum.request({method: "eth_requestAccounts"})
 
                 setCurrentAccount(account[0]);
